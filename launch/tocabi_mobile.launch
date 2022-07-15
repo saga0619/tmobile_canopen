@@ -1,0 +1,18 @@
+<launch>
+	<param name="robot_description" textfile="$(find cobra4812_canopen)/urdf/tocabi_mobile.urdf" />
+
+    <node name="canopen_motor" pkg="canopen_motor_node" type="canopen_motor_node" output="screen" clear_params="true" > 
+        <rosparam command="load" file="$(find cobra4812_canopen)/config/canopen_bus_layer.yaml" />
+        <rosparam command="load" file="$(find cobra4812_canopen)/config/controller_tocabi_mobile.yaml" />
+    </node>
+
+    <node name="controller_spawner" pkg="controller_manager" type="controller_manager" respawn="false"
+    output="screen" args="spawn 
+    /canopen_motor/joint_state_controller
+    /canopen_motor/joint1_velocity_controller
+    /canopen_motor/joint2_velocity_controller
+    /canopen_motor/joint3_velocity_controller
+    /canopen_motor/joint4_velocity_controller
+    "/>
+
+</launch>

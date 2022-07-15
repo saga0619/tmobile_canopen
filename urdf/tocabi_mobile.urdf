@@ -1,0 +1,67 @@
+<robot name="tocabi_mobile">
+	<!-- <link name="base_link" />
+	<joint name="virtual_joint" type="free">
+		<parent link="base_link" />
+		<child link="body_frame" />
+	</joint> -->
+	<link name="body_frame">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<box size="0.25 0.2 0.15" />
+			</geometry>
+		</visual>
+	</link>
+	<link name="wheel_fl">
+		<visual>
+			<geometry>
+				<cylinder length="0.1" radius="0.1" />
+			</geometry>
+		</visual>
+	</link>
+	<link name="wheel_fr">
+		<visual>
+			<geometry>
+				<cylinder length="0.1" radius="0.1" />
+			</geometry>
+		</visual>
+	</link>
+	<link name="wheel_bl">
+		<visual>
+			<geometry>
+				<cylinder length="0.1" radius="0.1" />
+			</geometry>
+		</visual>
+	</link>
+	<link name="wheel_br">
+		<visual>
+			<geometry>
+				<cylinder length="0.1" radius="0.1" />
+			</geometry>
+		</visual>
+	</link>
+	<joint name="joint1" type="continuous">
+		<parent link="body_frame" />
+		<child link="wheel_fl" />
+		<origin xyz="0.2 0.2 0" rpy="0 0 0" />
+		<axis xyz="0 1 0" />
+	</joint>
+	<joint name="joint2" type="continuous">
+		<parent link="body_frame" />
+		<child link="wheel_fr" />
+		<origin xyz="0.2 -0.2 0" rpy="0 0 0" />
+		<axis xyz="0 -1 0" />
+	</joint>
+	<joint name="joint3" type="continuous">
+		<parent link="body_frame" />
+		<child link="wheel_bl" />
+		<origin xyz="-0.2 0.2 0" rpy="0 0 0" />
+		<axis xyz="0 1 0" />
+	</joint>
+	<joint name="joint4" type="continuous">
+		<parent link="body_frame" />
+		<child link="wheel_br" />
+		<origin xyz="-0.2 -0.2 0" rpy="0 0 0" />
+		<axis xyz="0 -1 0" />
+	</joint>
+</robot>

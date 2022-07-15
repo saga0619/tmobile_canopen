@@ -1,0 +1,45 @@
+bus:
+  device: can0 # socketcan network
+  loopback: false # socket should loop back messages
+  driver_plugin: can::SocketCANInterface
+  master_allocator: canopen::SimpleMaster::Allocator 
+sync:
+  interval_ms: 10 # 10 ms is recommended for non real-time systems, set to 0 to disable sync
+  update_ms: <interval_ms> #update interval of control loop, must be set explecitly if sync is disabled
+  overflow: 0 # overflow sync counter at value or do not set it (0, default)
+#heartbeat: # simple heartbeat producer, optional!
+  #rate: 20 # heartbeat rate
+  msg: "77f#05" # message to send, cansend format: heartbeat of node 127 with status 5=Started
+
+nodes:
+  node1:
+    id: 1
+    name: joint1
+    eds_pkg: cobra4812_canopen
+    eds_file: "config/cobra4812_node1.dcf"
+
+  node2:
+    id: 2
+    name: jotin2
+    eds_pkg: cobra4812_canopen
+    eds_file: "config/cobra4812_node2.dcf"
+
+  node3:
+    id: 3
+    name: joint3
+    eds_pkg: cobra4812_canopen
+    eds_file: "config/cobra4812_node3.dcf"
+
+  node4:
+    id: 4
+    name: joint4
+    eds_pkg: cobra4812_canopen
+    eds_file: "config/cobra4812_node4.dcf"
+
+defaults:
+  motor_allocator: canopen::Motor402::Allocator
+  switching_state: 2
+  pos_to_device: "rint(rad2def(pos)*1000)"
+  pos_from_device: "deg2rad(obj6064)/1000"
+  vel_to_device:  "rint(rad2deg(vel)*1000)"
+  vel_from_device: "deg2rad(obj606C)/1000"

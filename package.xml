@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>cobra4812_canopen</name>
+  <version>0.7.4</version>
+  <description>cobra4812_canopen.</description>
+
+  <maintainer email="june992@snu.ac.kr">Junewhee Ahn</maintainer>
+  <author email="june992@snu.ac.kr">JuneWhee Ahn</author>
+
+  <license>LGPLv3</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>canopen_402</depend>
+  <depend>canopen_master</depend>
+
+  <test_depend>roslaunch</test_depend>
+  <test_depend>canopen_motor_node</test_depend>
+
+  <exec_depend>canopen_motor_node</exec_depend>
+  <exec_depend>cob_description</exec_depend>
+  <exec_depend>controller_manager</exec_depend>
+  <exec_depend>gazebo_ros</exec_depend>
+  <exec_depend>gazebo_ros_control</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>roslaunch</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>xacro</exec_depend>
+
+</package>
